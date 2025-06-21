@@ -1,35 +1,53 @@
-const dayStart = "07:30";
-const dayEnd = "17:45";
 
-function timeToMinutes(timeStr) {
-    let [hourStr, minuteStr] = timeStr.split(":");
-    let hours = parseInt(hourStr, 10);
-    let minutes = parseInt(minuteStr, 10);
-    let totalMinutes= (hours * 60) + minutes;
-    return totalMinutes
-}
 
-function scheduleMeeting(startTime,durationMinutes) {
-    let dayStartSinceMid = timeToMinutes(dayStart);
-    let dayEndSinceMid = timeToMinutes(dayEnd);
 
-    let startTimeMinSinceMid = timeToMinutes(startTime);
-    let finishTimeSinceMid = startTimeMinSinceMid + durationMinutes;
-    
-    let startsOnTime = startTimeMinSinceMid >= dayStartSinceMid;
-    let endsOnTime = finishTimeSinceMid <= dayEndSinceMid;
-    
-    return startsOnTime && endsOnTime;
-}
 
-//scheduleMeeting("7:00",15);     // false
-//scheduleMeeting("7:30",30);     // true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
-Practicing Comparisons
-Let's practice working with value types and comparisons (Chapter 4, Pillar 3) where coercion will need to be involved.
+Practicing Closure
+Now let's practice with closure (Chapter 4, Pillar 1).
 
-scheduleMeeting(..) should take a start time (in 24-hour format as a string "hh:mm") and a meeting duration (number of minutes).
-It should return true if the meeting falls entirely within the work day (according to the times specified in dayStart and dayEnd);
-return false if the meeting violates the work day bounds.
+The range(..) function takes a number as its first argument, representing the first number in a desired range of numbers. 
+The second argument is also a number representing the end of the desired range (inclusive). If the second argument is omitted,
+then another function should be returned that expects that argument.
+
+function range(start,end) {
+    // ..TODO..
+}
+
+range(3,3);    // [3]
+range(3,8);    // [3,4,5,6,7,8]
+range(3,0);    // []
+
+var start3 = range(3);
+var start4 = range(4);
+
+start3(3);     // [3]
+start3(8);     // [3,4,5,6,7,8]
+start3(0);     // []
+
+start4(6);     // [4,5,6]
+Try to solve this yourself first.
+
+Once you have code that works, compare your solution(s) to the code in "Suggested Solutions" at the end of this appendix.
 */
