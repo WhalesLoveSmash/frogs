@@ -11,7 +11,7 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-    <h1 class="text-4xl font-bold text-center mt-10">
+    <h1 id="frogTitle" class="text-4xl font-bold text-center mt-10">
         Frogs
     </h1>
 
@@ -19,3 +19,35 @@
 
 </body>
 </html
+
+//Dom and Event Listener type stuff
+
+
+
+
+
+
+
+
+
+
+
+
+
+//This is the part chat GPT gave me to make my frog html change so I got to implement this part on my own above
+
+// Select the h1 by ID
+const frogTitle = document.getElementById("frogTitle");
+
+// Track whether it's currently showing the range
+let showingRange = false;
+
+// Attach a click event listener
+frogTitle.addEventListener("click", function () {
+    if (showingRange) {
+        frogTitle.textContent = "Frogs";
+    } else {
+        frogTitle.textContent = range(5, 9).join(",");
+    }
+    showingRange = !showingRange;
+});
