@@ -17,10 +17,7 @@ function range(start, end) {
     return dateRange;
 }
 
-console.log(range(5, 9));
 //then we have to do the actual problem of doing this in two problems with closures
-
-
 /*
 Practicing Closure
 Now let's practice with closure (Chapter 4, Pillar 1).
@@ -37,21 +34,15 @@ start3(8);     // [3,4,5,6,7,8]
 start3(0);     // []
 */
 
-//Dom and Event Listener type stuff
-//This is the part chat GPT gave me to make my frog html change so I got to implement this part on my own above
-
-// Select the h1 by ID
-const frogTitle = document.getElementById("frogTitle");
-
-// Track whether it's currently showing the range
+//Dom and Event Listener type stuff to make it actually show on site
+const frogTitle = document.getElementById("frogTitle"); 
 let showingRange = false;
 
-// Attach a click event listener
 frogTitle.addEventListener("click", function () {
     if (showingRange) {
         frogTitle.textContent = "Frogs";
     } else {
         frogTitle.textContent = range(5, 9).join(",");
     }
-    showingRange = !showingRange;
+    showingRange =! showingRange;
 });
