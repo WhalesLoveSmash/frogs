@@ -2,6 +2,8 @@ const title = document.getElementById('frogTitle');
 const button = document.getElementById('changeTitleBtn');
 const frogZone = document.getElementById('frogZone');
 
+let lastQuoteIndex = -1;
+let lastColorIndex = -1;
 
 button.addEventListener('click', () => {
     const frogQuotes = [
@@ -22,8 +24,21 @@ button.addEventListener('click', () => {
 
     //Change background color randomly
     const colors = ['#A7F3D0', '#D1FAE5', '#FCD34D', '#FCA5A5', '#C4B5FD'];
-    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    
+    // pick a new background color that is NOT the same as last time
+    let colorIndex;
+    do {
+        colorIndex = Math.floor(Math.random() * colors.length);
+    } while (colorIndex === lastColorIndex);
+    lastColorIndex = colorIndex;
+    document.body.style.backgroundColor = colors[colorIndex];
 
-    const randomQuote = frogQuotes[Math.floor(Math.random() * frogQuotes.length)];
-    title.innerText = randomQuote;
+    // pick a new quote that is NOT the same as last time
+    let quoteIndex;
+    do {
+        quoteIndex = Math.floor(Math.random() * frogQuotes.length);
+    } while (quoteIndex === lastQuoteIndex);
+    
+    lastQuoteIndex = quoteIndex;
+    title.innerText = frogQuotes[quoteIndex];
 });
