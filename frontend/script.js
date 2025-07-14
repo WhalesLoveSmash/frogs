@@ -6,10 +6,10 @@ const frogZone = document.getElementById('frogZone');
 button.addEventListener('click', () => {
     const frogQuotes = [
         "Ribbit revolution 🐸",
-        "Frogs before bros",
+        "Prepare the swamp",
         "Deploy the amphibians",
         "FrogOps: Activated",
-        "Live, Laugh, Leap"
+        "Live, Laugh, Leap",
     ];
 
     //Make frog bounce
